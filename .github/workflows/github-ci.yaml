@@ -3,7 +3,7 @@ name: Workflow for Maven Build & Sonar Server Scan
 on:
   push:
     branches:
-      - main
+      - master
 
 jobs:
   build:
