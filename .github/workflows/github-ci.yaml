@@ -1,0 +1,33 @@
+name: Workflow for Maven Build & Sonar Server Scan
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout Code
+        uses: actions/checkout@v4
+
+      - name: Set Up JDK 17
+        uses: actions/setup-java@v5
+        with:
+          distribution: 'temurin'
+          java-version: '17'
+
+      - name: Build and Test with Maven
+        run: mvn -B clean verify
+
+      - name: Scan with SonarQube Server
+        uses: sonarsource/sonarqube-scan-action@v7
+        with:
+          projectBaseDir: .
+          args: >
+            -Dsonar.projectKey=antipodal
+        env:
+          SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+          SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
