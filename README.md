@@ -311,7 +311,7 @@ Commit and push:
 ```bash
 git add .
 git commit -m "Add SonarQube CI pipeline"
-git push origin main
+git push origin master
 ```
 
 Navigate to:
