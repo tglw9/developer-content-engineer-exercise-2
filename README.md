@@ -378,6 +378,6 @@ Running SonarQube on your own Azure VM allows:
 
 # Conclusion
 
-This guide demonstrates how to deploy SonarQube on Azure using Docker Compose and integrate it into a GitHub Actions workflow for Java projects.
+This guide demonstrates how to deploy SonarQube on an Azure VM using Docker Compose and integrate it into a GitHub Actions workflow for Java projects.
 
 You now have a complete DevOps pipeline with automated static code analysis.
